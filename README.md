@@ -169,3 +169,13 @@ public_ip_address = "20.XXX.XXX.XXX"
 
 Now, you have the public IP and can access the web server:
 ![IIS Server](docs/iis.png)
+
+Once the lab is finished, you can easily clear the resources to avoid consuming credit with the following command:
+
+```bash
+terraform destroy
+```
+
+Expected result: `Destroy complete! Resources: 9 destroyed.`
+
+Now we're back to the point where the resources created by Terraform didn't exist.
