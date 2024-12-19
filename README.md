@@ -38,7 +38,7 @@ provider "aws" {
 
 ## Providers
 
-Providers are Terraform components for communicating with APIs to create resources, whether cloud or on-premise. There are 3 types:
+Providers are Terraform components for communicating with APIs to create resources, whether cloud or on-premise. There are three types:
 
 - Official: Providers maintained by HashiCorp.
 - Partner: Maintained by important companies.
@@ -54,7 +54,7 @@ So, instead of creating every resource individually, you can call the module, an
 
 ## Registry
 
-HashiCorp has a place for saving any kind of resources as modules, providers, libraries and documentation. Here's the [link](https://registry.terraform.io/).
+HashiCorp has a place for saving any kind of resources as modules, providers, libraries and documentation. Here is the [link](https://registry.terraform.io/).
 
 It is recommended to read the provider documentation and follow recommendations for creating resources before starting a project.
 
