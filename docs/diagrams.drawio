@@ -1,0 +1,60 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/25.0.2 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="25.0.2">
+  <diagram name="Architecture" id="p5c_0Na3Yut6LMbBz0w6">
+    <mxGraphModel dx="1434" dy="835" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jBFdaxte9nSnKKDz6nql-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="jBFdaxte9nSnKKDz6nql-1" target="jBFdaxte9nSnKKDz6nql-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-14" value="Apply" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="jBFdaxte9nSnKKDz6nql-3" vertex="1" connectable="0">
+          <mxGeometry x="-0.0871" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-1" value="HCL code&lt;div&gt;(.tf)&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="40" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="jBFdaxte9nSnKKDz6nql-2" target="jBFdaxte9nSnKKDz6nql-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-16" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="jBFdaxte9nSnKKDz6nql-2" target="jBFdaxte9nSnKKDz6nql-15" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-2" value="Terraform" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="240" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.003;entryY=0.479;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="jBFdaxte9nSnKKDz6nql-4" target="jBFdaxte9nSnKKDz6nql-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-4" value="State&lt;br&gt;(.tfstate)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="240" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-6" value="Local" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="440" y="40" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-7" value="S3 (AWS)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="440" y="70" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-8" value="Storage Account (Azure)" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="440" y="100" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-9" value="Etc." style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="440" y="130" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-11" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.014;entryY=0.479;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="jBFdaxte9nSnKKDz6nql-4" target="jBFdaxte9nSnKKDz6nql-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-12" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.001;entryY=0.479;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="jBFdaxte9nSnKKDz6nql-4" target="jBFdaxte9nSnKKDz6nql-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-13" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.015;entryY=0.495;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="jBFdaxte9nSnKKDz6nql-4" target="jBFdaxte9nSnKKDz6nql-9" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jBFdaxte9nSnKKDz6nql-15" value="Providers&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Azure&lt;/div&gt;&lt;div&gt;- AWS&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;-&amp;nbsp;VMWare&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;- Etc.&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="440" y="190" width="120" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
