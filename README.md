@@ -1,23 +1,29 @@
 # Terraform 101
 
-This project is for learning how to build infrastructure using Terraform. In this case, a virtual machine will be created in Azure with an IIS installed.
+This project is aimed at system administrators and developers interested in adopting DevOps methodologies in their projects. Specifically, it focuses on using Terraform for infrastructure creation and management. As a practical example, a demonstration is included to create a virtual machine in Azure with IIS installed.
 
 ## Introduction
 
 Terraform is an Infrastructure-as-Code (IaC) tool created and maintained by HashiCorp that allows you to create cloud or on-premise resources with code, such as servers, databases, storage, and networks. This tool is declarative, so when the tool runs, what is written as code will be the final state of the resources, regardless of any manual changes made before via the portal or CLI.
 
-## HCL
+### Advantages of Using Terraform
 
-Terraform uses its own language called `HCL` (HashiCorp Configuration Language), which uses blocks for creating configurations and resources.
+- Multi-Cloud: Supports various cloud providers such as AWS, Azure, and GCP.
+- Declarative: Define the desired infrastructure state using code.
+- Modularity: Create reusable modules for different projects.
+- Community: Widely used DevOps tool with a large, helpful community.
+- Reproducibility: Use the same code to create different environments simultaneously.
+
+## HashiCorp Configuration Language (HCL)
+
+Terraform uses its own language called `HCL` which uses blocks for creating configurations and resources.
 
 This code must be saved as `.tf` files. It is important to know that it is not necessary for the code to be written in the same file. It is possible to separate it into different files with any name, allowing you to group common resources in those files.
 
 The two main blocks needed for using Terraform are:
 
-- `terraform`: For declaring providers to use.
+- `terraform`: For configuring Terraform and declaring providers to use.
 - `provider`: For configuring the provider declared before.
-
-Example:
 
 ```hcl
 # Declare AWS Provider and version
@@ -35,6 +41,53 @@ provider "aws" {
     region = "us-east-1"
 }
 ```
+
+### Resource Block
+
+This is probably the most important block used in Terraform. This element creates a new resource and tracks it on the provider, such as virtual machines, networks, storage, etc.
+
+```hcl
+#  element   its type    its name
+#    |          |           |
+#    |          |           |
+#    v          v           v
+  resource "aws_instance" "web" {
+    ami           = data.aws_ami.ubuntu.id
+    instance_type = "t3.micro"
+
+    tags = {
+        Name = "HelloWorld"
+    }
+  }
+```
+
+This block creates a virtual machine (EC2 instance) on AWS called `HelloWorld` with a `t3.micro` type using `Ubuntu`.
+
+### Data Block
+
+This is another important element, used to get information about resources already created outside of Terraform.
+
+```hcl
+# element  its type  its name
+#   |         |         |
+#   |         |         |
+#   v         v         v
+  data "aws_instance" "foo" {
+    instance_id = "i-instanceid"
+
+    filter {
+      name   = "image-id"
+      values = ["ami-xxxxxxxx"]
+    }
+
+    filter {
+      name   = "tag:Name"
+      values = ["instance-name-tag"]
+    }
+  }
+```
+
+This block finds an EC2 instance with the ID `i-instanceid`. Then, it is possible to use its information as variables in the Terraform code.
 
 ## Providers
 
@@ -54,7 +107,7 @@ So, instead of creating every resource individually, you can call the module, an
 
 ## Registry
 
-HashiCorp has a place for saving any kind of resources as modules, providers, libraries and documentation. Here is the [link](https://registry.terraform.io/).
+HashiCorp has a [place](https://registry.terraform.io/) for saving any kind of resources as modules, providers, libraries and documentation.
 
 It is recommended to read the provider documentation and follow recommendations for creating resources before starting a project.
 
@@ -99,7 +152,7 @@ Depending on the OS used, there are [different ways](https://developer.hashicorp
 - `terraform apply`: Apply the planned changes.
 - `terraform destroy`: Destroy all resources created by Terraform.
 
-## Laboratory
+## Demonstration
 
 This laboratory aims to create a Windows server with IIS installed using Terraform.
 
@@ -178,4 +231,12 @@ terraform destroy
 
 Expected result: `Destroy complete! Resources: 9 destroyed.`
 
-Now we're back to the point where the resources created by Terraform didn't exist.
+Now you are back to the point where the resources created by Terraform didn't exist.
+
+## Future
+
+Although most cloud providers typically offer their own IaC tools for use on their platforms, Terraform is currently the most widely used due to its multi-cloud nature. This means that if a provider change is desired, there is no need to learn a new tool to make the transition.
+
+Additionally, thanks to its open-source nature and the extensive community that supports it, Terraform is one of the favorite tools among DevOps professionals.
+
+However, since 2024, HashiCorp changed Terraform's license to BUSL. In response, the community created a fork called [OpenTofu](https://opentofu.org/), which is now managed by the Linux Foundation.
