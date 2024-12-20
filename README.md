@@ -4,7 +4,7 @@ This project is aimed at system administrators and developers interested in adop
 
 ## Introduction
 
-Terraform is an Infrastructure-as-Code (IaC) tool created and maintained by HashiCorp that allows you to create cloud or on-premise resources with code, such as servers, databases, storage, and networks. This tool is declarative, so when the tool runs, what is written as code will be the final state of the resources, regardless of any manual changes made before via the portal or CLI.
+[Terraform](https://www.terraform.io/) is an Infrastructure-as-Code (IaC) tool created and maintained by [HashiCorp](https://www.hashicorp.com/) that allows you to create cloud or on-premise resources with code, such as servers, databases, storage, and networks. This tool is declarative, so when the tool runs, what is written as code will be the final state of the resources, regardless of any manual changes made before via the portal or CLI.
 
 ### Advantages of Using Terraform
 
@@ -16,14 +16,14 @@ Terraform is an Infrastructure-as-Code (IaC) tool created and maintained by Hash
 
 ## HashiCorp Configuration Language (HCL)
 
-Terraform uses its own language called `HCL` which uses blocks for creating configurations and resources.
+Terraform uses its own language called [HCL](https://developer.hashicorp.com/terraform/language/syntax/configuration) which uses blocks for creating configurations and resources.
 
 This code must be saved as `.tf` files. It is important to know that it is not necessary for the code to be written in the same file. It is possible to separate it into different files with any name, allowing you to group common resources in those files.
 
 The two main blocks needed for using Terraform are:
 
-- `terraform`: For configuring Terraform and declaring providers to use.
-- `provider`: For configuring the provider declared before.
+- [terraform](https://developer.hashicorp.com/terraform/language/terraform): For configuring Terraform and declaring providers to use.
+- [provider](https://developer.hashicorp.com/terraform/language/providers): For configuring the provider declared before.
 
 ```hcl
 # Declare AWS Provider and version
@@ -44,7 +44,7 @@ provider "aws" {
 
 ### Resource Block
 
-This is probably the most important block used in Terraform. This element creates a new resource and tracks it on the provider, such as virtual machines, networks, storage, etc.
+This is probably the most important [block](https://developer.hashicorp.com/terraform/language/resources) used in Terraform. This element creates a new resource and tracks it on the provider, such as virtual machines, networks, storage, etc.
 
 ```hcl
 #  element   its type    its name
@@ -52,12 +52,12 @@ This is probably the most important block used in Terraform. This element create
 #    |          |           |
 #    v          v           v
   resource "aws_instance" "web" {
-    ami           = data.aws_ami.ubuntu.id
-    instance_type = "t3.micro"
-
-    tags = {
-        Name = "HelloWorld"
-    }
+    ami           = data.aws_ami.ubuntu.id      # Arguments
+    instance_type = "t3.micro"                  #     |
+                                                #     |
+    tags = {                                    #     |
+        Name = "HelloWorld"                     #     |
+    }                                           #     v
   }
 ```
 
@@ -65,7 +65,7 @@ This block creates a virtual machine (EC2 instance) on AWS called `HelloWorld` w
 
 ### Data Block
 
-This is another important element, used to get information about resources already created outside of Terraform.
+This is another important [element](https://developer.hashicorp.com/terraform/language/data-sources), used to get information about resources already created outside of Terraform.
 
 ```hcl
 # element  its type  its name
@@ -73,37 +73,21 @@ This is another important element, used to get information about resources alrea
 #   |         |         |
 #   v         v         v
   data "aws_instance" "foo" {
-    instance_id = "i-instanceid"
-
-    filter {
-      name   = "image-id"
-      values = ["ami-xxxxxxxx"]
-    }
-
-    filter {
-      name   = "tag:Name"
-      values = ["instance-name-tag"]
-    }
+    instance_id = "i-instanceid"        # Arguments
+                                        #     |
+    filter {                            #     |
+      name   = "image-id"               #     |
+      values = ["ami-xxxxxxxx"]         #     |
+    }                                   #     |
+                                        #     |
+    filter {                            #     |
+      name   = "tag:Name"               #     |
+      values = ["instance-name-tag"]    #     |
+    }                                   #     v
   }
 ```
 
 This block finds an EC2 instance with the ID `i-instanceid`. Then, it is possible to use its information as variables in the Terraform code.
-
-## Providers
-
-Providers are Terraform components for communicating with APIs to create resources, whether cloud or on-premise. There are three types:
-
-- Official: Providers maintained by HashiCorp.
-- Partner: Maintained by important companies.
-- Community: Maintained by the community. Sometimes these can be unstable or insecure to use.
-
-## Modules
-
-Modules are like "packages" of Terraform code that allow you to reuse configurations for other projects.
-
-For example, if there is often a need to create a basic group of resources on the cloud such as a VM connected to the internet, a security group, a load balancer, etc., it may be better to create a module and reuse it every time.
-
-So, instead of creating every resource individually, you can call the module, and this package will create everything necessary to make it work correctly.
 
 ## Registry
 
@@ -111,9 +95,25 @@ HashiCorp has a [place](https://registry.terraform.io/) for saving any kind of r
 
 It is recommended to read the provider documentation and follow recommendations for creating resources before starting a project.
 
+## Providers
+
+[Providers](https://registry.terraform.io/browse/providers) are Terraform components for communicating with APIs to create resources, whether cloud or on-premise. There are three types:
+
+- Official: Providers maintained by HashiCorp.
+- Partner: Maintained by important companies.
+- Community: Maintained by the community. Sometimes these can be unstable or insecure to use.
+
+## Modules
+
+[Modules](https://registry.terraform.io/browse/modules) are like "packages" of Terraform code that allow you to reuse configurations for other projects.
+
+For example, if there is often a need to create a basic group of resources on the cloud such as a VM connected to the internet, a security group, a load balancer, etc., it may be better to create a module and reuse it every time.
+
+So, instead of creating every resource individually, you can call the module, and this package will create everything necessary to make it work correctly.
+
 ## State file
 
-The state is a text file for tracking all the resources created by the Terraform project. By default, this file is saved on the local machine, but it is possible to store it in the cloud and share resources, such as a Storage Account or S3. This way, a team can collaborate on the same project using the same state. Another important aspect of this method is the ability to keep backups of the file.
+The [state](https://developer.hashicorp.com/terraform/language/state) is a text file for tracking all the resources created by the Terraform project. By default, this file is saved on the local machine, but it is possible to store it in the cloud and share resources, such as a Storage Account or S3. This way, a team can collaborate on the same project using the same state. Another important aspect of this method is the ability to keep backups of the file.
 
 This place for saving the state on an external source is called a "backend". To configure it, you need to set it up in the `terraform` block as shown below:
 
@@ -239,4 +239,4 @@ Although most cloud providers typically offer their own IaC tools for use on the
 
 Additionally, thanks to its open-source nature and the extensive community that supports it, Terraform is one of the favorite tools among DevOps professionals.
 
-However, since 2024, HashiCorp changed Terraform's license to BUSL. In response, the community created a fork called [OpenTofu](https://opentofu.org/), which is now managed by the Linux Foundation.
+However, since 2024, HashiCorp changed Terraform's license to BUSL. In response, the community created a fork called [OpenTofu](https://opentofu.org/), which is now being managed by the Linux Foundation.
