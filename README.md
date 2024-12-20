@@ -111,7 +111,7 @@ For example, if there is often a need to create a basic group of resources on th
 
 So, instead of creating every resource individually, you can call the module, and this package will create everything necessary to make it work correctly.
 
-## State file
+## State File
 
 The [state](https://developer.hashicorp.com/terraform/language/state) is a text file for tracking all the resources created by the Terraform project. By default, this file is saved on the local machine, but it is possible to store it in the cloud and share resources, such as a Storage Account or S3. This way, a team can collaborate on the same project using the same state. Another important aspect of this method is the ability to keep backups of the file.
 
@@ -156,7 +156,7 @@ Depending on the OS used, there are [different ways](https://developer.hashicorp
 
 This laboratory aims to create a Windows server with IIS installed using Terraform.
 
-There are four important files for this:
+There are four important files:
 
 - `provider.tf`: Configuration for connecting to Azure.
 - `iis.tf`: Resources for creating the VM and necessary components.
