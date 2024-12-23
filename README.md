@@ -8,7 +8,7 @@ This project is aimed at system administrators and developers interested in adop
 
 ### Advantages of Using Terraform
 
-- Multi-Cloud: Supports various cloud providers such as AWS, Azure, and GCP.
+- Multi-Cloud: Supports various cloud providers such as AWS, Azure and GCP.
 - Declarative: Define the desired infrastructure state using code.
 - Modularity: Create reusable modules for different projects.
 - Community: Widely used DevOps tool with a large, helpful community.
