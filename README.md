@@ -4,7 +4,7 @@ This project is aimed at system administrators and developers interested in adop
 
 ## Introduction
 
-[Terraform](https://www.terraform.io/) is an Infrastructure-as-Code (IaC) tool created and maintained by [HashiCorp](https://www.hashicorp.com/) that allows you to create cloud or on-premise resources with code, such as servers, databases, storage and networks. This tool is declarative, so when the tool runs, what is written as code will be the final state of the resources, regardless of any manual changes made before via the portal or CLI.
+[Terraform](https://www.terraform.io/) is an Infrastructure-as-Code (IaC) tool created and maintained by [HashiCorp](https://www.hashicorp.com/) that allows you to create cloud or on-premise resources with code, such as servers, databases, storages and networks. This tool is declarative, so when the tool runs, what is written as code will be the final state of the resources, regardless of any manual changes made before via the portal or CLI.
 
 ### Advantages of Using Terraform
 
@@ -179,7 +179,6 @@ First, configure the Azure CLI.
 ```bash
 az login
 # If you have more than one tenant, use: az login --tenant "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-az account set --subscription="XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 ```
 
 #### Terraform Project
